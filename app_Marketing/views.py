@@ -28,16 +28,19 @@ def mercado(request):
 #cerrar cesion
 def exit(request):
     logout(request)
+    return redirect('/')
+
+@login_required
 def planidicar_evento(request):
     return render(request,'Planificar_evento.html',{
         'current_page': 'Planificar_evento',
     })
-
+@login_required
 def elaborar_campania(request):
     return render(request,'Elaborar_campania.html',{
         'current_page': 'Elaborar_campania',
     })
-
+@login_required
 def ver_eventos_campania(request):
     return render(request,'ver_eventos_campania.html',{
         'current_page': 'Ver_eventos_campania',
