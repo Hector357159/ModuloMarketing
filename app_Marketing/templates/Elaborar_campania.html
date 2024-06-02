@@ -10,9 +10,108 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 
-    <title>Mercado</title>
-    <h1>elavorar capania</h1>
 
+    <title>Mercado</title>
+    <!--<h1>Informacion evento</h1>--> 
+  
+<!--
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="w-50">
+          <h1 class="text-center">Información evento</h1>
+          <form>
+              <div class="form-group">
+                  <label for="eventName">Nombre de evento</label>
+                  <input type="text" class="form-control" id="eventName" placeholder="Ingrese el nombre del evento">
+              </div>
+              <div class="form-group">
+                  <label for="music">Música</label>
+                  <input type="text" class="form-control" id="music" placeholder="Ingrese la música">
+              </div>
+              <div class="form-group">
+                  <label for="food">Comida</label>
+                  <input type="text" class="form-control" id="food" placeholder="Ingrese la comida">
+              </div>
+              <div class="form-group">
+                  <label for="activities">Actividades recreativas</label>
+                  <input type="text" class="form-control" id="activities" placeholder="Ingrese las actividades recreativas">
+              </div>
+          </form>
+      </div>
+  </div>
+  -->
+  <div class="container mt-5">
+    <!-- Información del Evento -->
+    <div class="text-center mb-5">
+        <h1>Información Evento</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="eventName">Nombre de evento</label>
+                    <input type="text" class="form-control" id="eventName" placeholder="Ingrese el nombre del evento">
+                </div>
+                <div class="form-group">
+                    <label for="music">Música</label>
+                    <input type="text" class="form-control" id="music" placeholder="Ingrese la música">
+                </div>
+                <div class="form-group">
+                    <label for="food">Comida</label>
+                    <input type="text" class="form-control" id="food" placeholder="Ingrese la comida">
+                </div>
+                <div class="form-group">
+                    <label for="activities">Actividades recreativas</label>                 
+                  <input type="text" class="form-control" id="activities" placeholder="Ingrese las actividades recreativas">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 text-center">
+            <h4>Próximos Eventos</h4>
+            <input type="date" class="form-control" id="acctivities">
+           <!-- <input type="text" id="datepicker" class="form-control">-->
+            <!--<img src="https://via.placeholder.com/150" class="calendar" alt="Calendario">-->
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Elaborar Campaña -->
+    <div class="text-center mb-5">
+        <h1>Elaborar Campaña</h1>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="campaignName">Nombre de la campaña</label>
+            <input type="text" class="form-control" id="campaignName" placeholder="Ingrese el nombre de la campaña">
+        </div>       
+        <div class="form-group image-upload">
+            <label for="campaignImage">Imagen campaña:</label>
+            <input type="file" id="campaignImage" accept="image/*">
+            <div class="image-upload-preview">Vista previa de la imagen</div>
+        </div>
+        <div class="form-group">
+            <label for="startDate">Fecha inicio</label>
+            <input type="date" class="form-control" id="startDate">
+        </div>
+        <div class="form-group">
+            <label for="endDate">Fecha final</label>
+            <input type="date" class="form-control" id="endDate">
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción de campaña</label>
+            <textarea class="form-control" id="description" rows="4" placeholder="Ingrese la descripción de la campaña"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+    <div class="text-center mt-5">
+        <h5>Crear campaña en:</h5>
+        <button class="btn btn-social-icon btn-instagram"><i class="fab fa-instagram">Instagramm</i></button>
+        <button class="btn btn-social-icon btn-facebook"><i class="fab fa-facebook-f">Facebookk</i></button>
+    </div>
+</div>
 {% endblock %}
 </body>
 </html>
