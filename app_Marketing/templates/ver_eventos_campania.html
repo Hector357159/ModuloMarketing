@@ -14,98 +14,101 @@
   </head>
 <body>
 <!-- Mostramos el menu para movernos por las paginas -->
-<div>
+
 {% extends "layouts/base.html" %}
 
 {% block content %}
-</div>
-    <title>Mercado</title>
-    <h1>ver eventos y campania</h1>
-    
     <div class="container mt-5">
-      <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollable-table">
-      <h3 class="mb-4">Ver eventos</h3>
-      <table class="table table-bordered">
-          <thead>
-              <tr>
-                  <th>Nombre del evento</th>
-                  <th>Música</th>
-                  <th>Comida</th>
-                  <th>Actividades recreativas</th>
-                  <th>Modificar</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Celebracion madres</td>
-                  <td>Baladas</td>
-                  <td>No hay</td>
-                  <td>Rifa</td>
-                  <td><button>Editar</button></td>
-              </tr>
-              <tr>
-                  <td>Independencia</td>
-                  <td>Banda de guerra</td>
-                  <td>Comida típica</td>
-                  <td>Regalos sorpresa</td>
-                  <td><button>Editar</button></td>
-              </tr>
-              <tr>
-                  <td>Año nuevo chino</td>
-                  <td>Electrónica</td>
-                  <td>Galletas</td>
-                  <td>Juegos de mesa</td>
-                  <td><button>Editar</button></td>
-              </tr>
-          </tbody>
-      </table></div>
+        <h1>Ver eventos y campañas</h1>
+        
+        <div class="mb-5">
+            <div class="scrollable-table">
+            <h3 class="mb-4">Ver eventos</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre del evento</th>
+                        <th>Música</th>
+                        <th>Comida</th>
+                        <th>Actividades recreativas</th>
+                        <th>Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Celebración madres</td>
+                        <td>Baladas</td>
+                        <td>No hay</td>
+                        <td>Rifa</td>
+                        <td><button class="btn btn-primary">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Independencia</td>
+                        <td>Banda de guerra</td>
+                        <td>Comida típica</td>
+                        <td>Regalos sorpresa</td>
+                        <td><button class="btn btn-primary">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Año nuevo chino</td>
+                        <td>Electrónica</td>
+                        <td>Galletas</td>
+                        <td>Juegos de mesa</td>
+                        <td><button class="btn btn-primary">Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
 
-      <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollable-table">
-      <h3 class="mb-4">Ver campañas</h3>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-                  <th>Nombre campaña</th>
-                  <th>Archivo de imagen</th>
-                  <th>Fecha inicio</th>
-                  <th>Fecha final</th>
-                  <th>Descripción</th>
-                  <th>Modificar</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Campaña 1</td>
-                  <td>imgCampaña1</td>
-                  <td>12/02/24</td>
-                  <td>15/02/24</td>
-                  <td>Descripción 1</td>
-                  <td><button>Editar</button></td>
-              </tr>
-              <tr>
-                  <td>Campaña 2</td>
-                  <td>imgCampaña2</td>
-                  <td>11/11/24</td>
-                  <td>15/11/24</td>
-                  <td>Descripción 2</td>
-                  <td><button>Editar</button></td>
-              </tr>
-              <tr>
-                  <td>Campaña 3</td>
-                  <td>imgCampaña3</td>
-                  <td>20/12/24</td>
-                  <td>25/12/24</td>
-                  <td>Descripción 3</td>
-                  <td><button>Editar</button></td>
-              </tr>
-            </tbody>
-          </table></div>
-  </div>
+        <div>
+            <h3>Ver campañas</h3>
+            <div class="scrollable-table">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre campaña</th>
+                            <th>Archivo de imagen</th>
+                            <th>Fecha inicio</th>
+                            <th>Fecha final</th>
+                            <th>Descripción</th>
+                            <th>Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Campaña 1</td>
+                            <td>imgCampaña1</td>
+                            <td>12/02/24</td>
+                            <td>15/02/24</td>
+                            <td>Descripción 1</td>
+                            <td><button class="btn btn-primary">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Campaña 2</td>
+                            <td>imgCampaña2</td>
+                            <td>11/11/24</td>
+                            <td>15/11/24</td>
+                            <td>Descripción 2</td>
+                            <td><button class="btn btn-primary">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Campaña 3</td>
+                            <td>imgCampaña3</td>
+                            <td>20/12/24</td>
+                            <td>25/12/24</td>
+                            <td>Descripción 3</td>
+                            <td><button class="btn btn-primary">Editar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock %}
 </body>
 </html>
