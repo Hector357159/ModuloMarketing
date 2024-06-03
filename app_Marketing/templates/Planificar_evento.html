@@ -10,6 +10,9 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 <!-- Elemento HTML donde se mostrará el calendario -->
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="w-50">
+    <!--
 <div id="calendar"></div>
 
 <script>
@@ -23,7 +26,12 @@
     calendar.render();
   });
 </script>
-
+-->
+<div class="col-md-6">
+  <h4>Planificacion de evento</h4>
+  <label for="exampleFormControlInput1" class="form-label">Fecha</label>
+  <input type="date" class="form-control" id="proevent">
+</div><br>
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Nombre del evento</label>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
@@ -43,7 +51,7 @@
 
   <button type="button" class="btn btn-success">Guardar</button>
   <button type="button" class="btn btn-danger">Cancelar</button>
-
+</div></div>
 {% endblock %}
 </body>
 </html>

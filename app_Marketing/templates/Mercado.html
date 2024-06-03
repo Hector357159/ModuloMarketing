@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            .chart-container {
+                position: relative;
+                margin: auto;
+                height: 40vh;
+                width: 80vw;
+            }
+            .table-responsive {
+                margin-top: 20px;
+            }
+            .social-icons {
+                font-size: 2em;
+            }
+            .metrics-section {
+                padding: 20px;
+            }
+            .metrics-section h4 {
+                margin-bottom: 20px;
+            }
+        </style>
 </head>
 <body>
 <!-- Mostramos el menu para movernos por las paginas -->
@@ -14,8 +38,170 @@
 
     <title>Mercado</title>
     <h1>Mercado</h1>
-
-
+    <div class="container mt-5">
+      <!-- Análisis de Mercado -->
+      <div class="text-center mb-5">
+          <h1>Análisis de Mercado</h1>
+      </div>
+    
+      <div class="row">
+          <!-- Seguidores en las redes -->
+          <div class="col-md-6">
+              <h4>Seguidores en las redes</h4>
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>Plataforma</th>
+                          <th>Seguidores</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Facebook</td>
+                          <td>371</td>
+                      </tr>
+                      <tr>
+                          <td>Instagram</td>
+                          <td>343</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <!-- Métricas de las redes sociales -->
+          <div class="col-md-6">
+              <h4>Métrica de las redes sociales</h4>
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>Campañas</th>
+                          <th>Métricas</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Nombre de la campaña 1</td>
+                          <td><a href="#">Ver detalles</a></td>
+                      </tr>
+                      <tr>
+                          <td>Nombre de la campaña 2</td>
+                          <td><a href="#">Ver detalles</a></td>
+                      </tr>
+                      <tr>
+                          <td>Nombre de la campaña 3</td>
+                          <td><a href="#">Ver detalles</a></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    
+      <hr class="my-5">
+    
+      <!-- Métricas de Página Web -->
+      <div class="text-center mb-5">
+          <h1>Métricas de Página Web</h1>
+      </div>
+    
+      <div class="row">
+          <div class="col-md-6">
+              <div class="chart-container">
+                  <canvas id="visitasChart"></canvas>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="chart-container">
+                  <canvas id="sexoChart"></canvas>
+              </div>
+          </div>
+      </div>
+    
+      <hr class="my-5">
+    
+      <!-- Métricas de Redes Sociales -->
+      <div class="text-center mb-5">
+          <h1>Métricas de Redes Sociales</h1>
+      </div>
+    
+      <div class="row">
+          <div class="col-md-6 metrics-section">
+              <div class="d-flex align-items-center mb-3">
+                  <i class="fab fa-facebook-square social-icons"></i>
+                  <h4 class="ml-3">Facebook</h4>
+              </div>
+              <div class="chart-container">
+                  <canvas id="facebookChart"></canvas>
+              </div>
+          </div>
+          <div class="col-md-6 metrics-section">
+              <div class="d-flex align-items-center mb-3">
+                  <i class="fab fa-instagram social-icons"></i>
+                  <h4 class="ml-3">Instagram</h4>
+              </div>
+              <div class="chart-container">
+                  <canvas id="instagramChart"></canvas>
+              </div>
+          </div>
+      </div>
+    </div>
+    <script>
+      const visitasCtx = document.getElementById('visitasChart').getContext('2d');
+      const visitasChart = new Chart(visitasCtx, {
+          type: 'line',
+          data: {
+              labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+              datasets: [{
+                  label: 'Visitas a la página web',
+                  data: [100, 200, 150, 300, 250, 400],
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  borderWidth: 2,
+                  fill: false
+              }]
+          }
+      });
+  
+      const sexoCtx = document.getElementById('sexoChart').getContext('2d');
+      const sexoChart = new Chart(sexoCtx, {
+          type: 'pie',
+          data: {
+              labels: ['Masculino', 'Femenino'],
+              datasets: [{
+                  label: 'Sexo',
+                  data: [60, 40],
+                  backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)'],
+                  borderWidth: 1
+              }]
+          }
+      });
+  
+      const facebookCtx = document.getElementById('facebookChart').getContext('2d');
+      const facebookChart = new Chart(facebookCtx, {
+          type: 'bar',
+          data: {
+              labels: ['18-25', '26-40', '40+'],
+              datasets: [{
+                  label: 'Edad',
+                  data: [50, 30, 20],
+                  backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                  borderWidth: 1
+              }]
+          }
+      });
+  
+      const instagramCtx = document.getElementById('instagramChart').getContext('2d');
+      const instagramChart = new Chart(instagramCtx, {
+          type: 'bar',
+          data: {
+              labels: ['18-25', '26-40', '40+'],
+              datasets: [{
+                  label: 'Edad',
+                  data: [40, 35, 25],
+                  backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                  borderWidth: 1
+              }]
+          }
+      });
+  </script>
 {% endblock %}
+
 </body>
 </html>
