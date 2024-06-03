@@ -10,7 +10,6 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 <!-- Elemento HTML donde se mostrará el calendario -->
-<div id="calendar"></div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -23,27 +22,28 @@
     calendar.render();
   });
 </script>
-
+<form method="post">
+<div id="calendar"  id="fecha"></div>
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Nombre del evento</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="email" class="form-control" id="Nombre" placeholder="">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Música</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="email" class="form-control" id="Musica" placeholder="">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Comida</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="email" class="form-control" id="Comida" placeholder="">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Actividades recreativas</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="email" class="form-control" id="Actividades" placeholder="">
   </div>
 
   <button type="button" class="btn btn-success">Guardar</button>
   <button type="button" class="btn btn-danger">Cancelar</button>
-
+</form>
 {% endblock %}
 </body>
 </html>

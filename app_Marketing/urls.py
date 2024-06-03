@@ -11,6 +11,6 @@ urlpatterns = [
     
     path('Elaborar_campania/', views.elaborar_campania,name='Elaborar_campania'),
     
-    path('logout/', views.exit,name='Exit'),
+    path('salir/', views.exit,name='Exit'),
     
 ]

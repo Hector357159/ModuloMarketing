@@ -29,16 +29,41 @@ def mercado(request):
 def exit(request):
     logout(request)
     return redirect('/')
-
+#pranififar evento
 @login_required
 def planidicar_evento(request):
-    return render(request,'Planificar_evento.html',{
+    if request.method == 'POST':
+        #obtener los datos del form avente
+        nombre_evento = request.POST.get('Nombre')
+        fecha_evento = request.POST.get('fecha')
+        musica = request.POST.get('Musica')
+        comida = request.POST.get('Comida')
+        actividad_recreativa = request.POST.get('Actividades')
+        
+        #creamos una instancia del modelo evento con los datos recibidos y los guarda en BD
+        nuevo_evento = models.Evento.objects.create(
+            nombreEvento=nombre_evento,
+            fechaRealizacion=fecha_evento,
+            musica=musica,
+            comida=comida,
+            actividadRecreativa=actividad_recreativa
+        )
+        
+        return redirect('Ver_eventos_campania')
+    else:
+        return render(request,'Planificar_evento.html',{
         'current_page': 'Planificar_evento',
-    })
+        
+        })
+        
+
+
 @login_required
 def elaborar_campania(request):
+    data = models.Evento.objects.all()
     return render(request,'Elaborar_campania.html',{
         'current_page': 'Elaborar_campania',
+        
     })
 @login_required
 def ver_eventos_campania(request):
