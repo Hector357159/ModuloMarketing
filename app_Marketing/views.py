@@ -35,20 +35,22 @@ def planidicar_evento(request):
     if request.method == 'POST':
         #obtener los datos del form avente
         nombre_evento = request.POST.get('Nombre')
-        fecha_evento = request.POST.get('fecha')
+        fecha_evento = request.POST.get('Fecha')
         musica = request.POST.get('Musica')
         comida = request.POST.get('Comida')
         actividad_recreativa = request.POST.get('Actividades')
         
         #creamos una instancia del modelo evento con los datos recibidos y los guarda en BD
         nuevo_evento = models.Evento.objects.create(
-            nombreEvento=nombre_evento,
+            nombreEvento = nombre_evento,
             fechaRealizacion=fecha_evento,
             musica=musica,
             comida=comida,
             actividadRecreativa=actividad_recreativa
         )
         
+        #g# Guarda la instancia en la base de datos
+        nuevo_evento.save()
         return redirect('Ver_eventos_campania')
     else:
         return render(request,'Planificar_evento.html',{

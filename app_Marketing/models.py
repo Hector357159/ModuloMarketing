@@ -6,7 +6,7 @@ class Evento(models.Model):
     nombreEvento = models.CharField(max_length=100)
     fechaRealizacion = models.DateField(blank=True, null=True)
     musica = models.CharField(max_length=100)
-    cominda = models.CharField(max_length=100)
+    comida  = models.CharField(max_length=100)
     actividadRecreativa = models.CharField(max_length=100)
     
     def __str__(self) -> str:
