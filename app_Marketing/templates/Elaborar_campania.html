@@ -61,70 +61,81 @@
       </div>
   </div>
   -->
-  <div class="container mt-5">
+
+
+
+    <form method="POST">
+        {% csrf_token %}
+         <div class="container mt-5">
     <!-- Información del Evento -->
     <div class="text-center mb-5">
         <h1>Información Evento</h1>
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-            <form>
-                <div class="form-group">
-                    <label for="eventName">Nombre de evento</label>
-                    <input type="text" class="form-control" id="eventName" placeholder="Ingrese el nombre del evento" readonly>
+        <div class="col-md-12">
+                <div class="mb-12">
+                    <div class="scrollable-table">
+                    <h3 class="mb-4">Ver eventos</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Nombre del evento</th>
+                                <th>Música</th>
+                                <th>Comida</th>
+                                <th>Actividades recreativas</th>
+                                <th>Seleccionar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for evento in eventos %}
+                            <tr>
+                                <td>{{ evento.fechaRealizacion }}</td>
+                                <td>{{ evento.nombreEvento }}</td>
+                                <td>{{ evento.musica }}</td>
+                                <td>{{ evento.comida }}</td>
+                                <td>{{ evento.actividadRecreativa }}</td>
+                                <td><input type="radio" id="{{ evento.id }}" name="eventos_id" value="{{ evento.id }}"></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
-                <div class="form-group">
-                    <label for="music">Música</label>
-                    <input type="text" class="form-control" id="music" placeholder="Ingrese la música" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="food">Comida</label>
-                    <input type="text" class="form-control" id="food" placeholder="Ingrese la comida" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="activities">Actividades recreativas</label>                 
-                  <input type="text" class="form-control" id="activities" placeholder="Ingrese las actividades recreativas" readonly>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6 text-center">
-            <h4>Próximos Eventos</h4>
-            <input type="date" class="form-control" id="acctivities">
-           <!-- <input type="text" id="datepicker" class="form-control">-->
-            <!--<img src="https://via.placeholder.com/150" class="calendar" alt="Calendario">-->
+            </div>
         </div>
     </div>
 
     <hr class="my-5">
-
-    <!-- Elaborar Campaña -->
-    <div class="text-center mb-5">
-        <h1>Elaborar Campaña</h1>
-    </div>
-
-    <form>
+            <!-- Elaborar Campaña -->
+        <div class="text-center mb-5">
+            <h1>Elaborar Campaña</h1>
+        </div>
         <div class="form-group">
             <label for="campaignName">Nombre de la campaña</label>
-            <input type="text" class="form-control" id="campaignName" placeholder="Ingrese el nombre de la campaña">
+            <input type="text" name="Nombre" class="form-control" id="campaignName" placeholder="Ingrese el nombre de la campaña">
         </div>       
         <div class="form-group image-upload">
             <label for="campaignImage">Imagen campaña:</label>
-            <input type="file" id="campaignImage" accept="image/*">
+            <input type="file" id="campaignImage" name="Imagen"  accept="image/*">
             <div class="image-upload-preview">Vista previa de la imagen</div>
         </div>
         <div class="form-group">
             <label for="startDate">Fecha inicio</label>
-            <input type="date" class="form-control" id="startDate">
+            <input type="date" name="Fecha-inicio"  class="form-control" id="startDate">
         </div>
         <div class="form-group">
             <label for="endDate">Fecha final</label>
-            <input type="date" class="form-control" id="endDate">
+            <input type="date" name="Fecha_final"  class="form-control" id="endDate">
         </div>
         <div class="form-group">
             <label for="description">Descripción de campaña</label>
-            <textarea class="form-control" id="description" rows="4" placeholder="Ingrese la descripción de la campaña"></textarea>
+            <textarea class="form-control" name="Descripción"  id="description" rows="4" placeholder="Ingrese la descripción de la campaña"></textarea>
         </div>
+        <div class="form-group">
+            <label for="campaignName">Presupuesto</label>
+            <input type="number" name="Presupuesto" class="form-control" id="campaignName" placeholder="Presupuesto">
+        </div>    
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 

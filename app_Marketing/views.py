@@ -62,13 +62,52 @@ def planidicar_evento(request):
 
 @login_required
 def elaborar_campania(request):
-    data = models.Evento.objects.all()
-    return render(request,'Elaborar_campania.html',{
+    if request.method == 'POST':
+        #obtener los datos del form avente
+        evento_id = request.POST.get('eventos_id')
+        nombreCampania = request.POST.get('Nombre')
+        imagen = request.POST.get('Imagen')
+        fechaInicio = request.POST.get('Fecha-inicio')
+        fechaFinal = request.POST.get('Fecha_final')
+        descripcion = request.POST.get('Descripción')
+        presupuesto = request.POST.get('Presupuesto')
+        try:
+            # Obtener la instancia del evento utilizando el ID
+            evento = models.Evento.objects.get(pk=evento_id)
+            ##creamos una instancia del modelo evento con los datos recibidos y los guarda en BD
+            nueva_Campania = models.Campania.objects.create(
+            nombreCampania = nombreCampania,
+            fechaInicio= fechaInicio,
+            fechaFinal=fechaFinal,
+            descripcion=descripcion,
+            imagen=imagen,
+            presupuesto=presupuesto,
+            campania = evento
+        )
+            # Guardar la instancia de Campania en la base de datos
+            nueva_Campania.save()
+            # Realizar cualquier otra lógica necesaria
+            return redirect('Ver_eventos_campania')
+        except models.Evento.DoesNotExist:
+            # Manejar el caso en que el evento no exista
+            return  HttpResponse("La campaña se creó correctamente.")
+    else:
+        #traemos los objetos evententos
+        eventos = models.Evento.objects.all()
+        return render(request,'Elaborar_campania.html',{
         'current_page': 'Elaborar_campania',
+        'eventos': eventos
         
-    })
+        })
+        
 @login_required
 def ver_eventos_campania(request):
+    #traemos los objetos evententos
+    eventos = models.Evento.objects.all()
+    campanias = models.Campania.objects.all()
+    
     return render(request,'ver_eventos_campania.html',{
         'current_page': 'Ver_eventos_campania',
+        'eventos': eventos,
+        'campanias': campanias,
     })
