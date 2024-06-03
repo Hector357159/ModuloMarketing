@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planificar evento</title>
 </head>
-<body>
+<body>    
 <!-- Mostramos el menu para movernos por las paginas -->
 {% extends "layouts/base.html" %}
 {% block content %}
+<form method="POST">
+{% csrf_token %}
 <!-- Elemento HTML donde se mostrará el calendario -->
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="w-50">
@@ -30,28 +32,29 @@
 <div class="col-md-6">
   <h4>Planificacion de evento</h4>
   <label for="exampleFormControlInput1" class="form-label">Fecha</label>
-  <input type="date" class="form-control" id="proevent">
+  <input type="date" class="form-control" id="Fecha"  name="Fecha">
 </div><br>
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Nombre del evento</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Música</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="" class="form-control" id="Musica"  name="Musica" placeholder="">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Comida</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="text" class="form-control" id="Comida"   name="Comida" placeholder="">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Actividades recreativas</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="text" class="form-control" id="Actividades"  name="Actividades" placeholder="">
   </div>
 
-  <button type="button" class="btn btn-success">Guardar</button>
+  <button type="submit" class="btn btn-success">Guardar</button>
   <button type="button" class="btn btn-danger">Cancelar</button>
 </div></div>
+</form>
 {% endblock %}
 </body>
 </html>
